@@ -19,32 +19,80 @@
    </div>
 </body>
 <script>
+    //this is scalable way of writing onclick whereas u can write in side img tag like below but it can arise the problem of scalibility
+    //<li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" 
+        //alt="" onclick="alert('owl')"></li>
+    
+    //incase of react above method is scalable
+
+    //better approach but best is through eventListeners because it looks good but provide limited information
     // document.getElementById('owl').onclick = function(){
     //     alert("owl clicked")
     // }
+    
+    // eventListeners not only provide the functionality of on click but also the functionality of propogation
+    
+    // document.getElementById('owl').addEventListener('click',function(){
+    //     alert("owl clicked again");
+    // })
 
+    document.getElementById('owl').addEventListener('click',function(e){
+        console.log(e);
+    },false)  
+    //the third parameter is bydefault false most of the cases false is not written
+    // but in some cases we need then we use
+  
+    //previously used
      // attachEvent()
     // jQuery - on
-
+    
+    //go through the below Events
     // type, timestamp, defaultPrevented
     // target, toElement, srcElement, currentTarget,
     // clientX, clientY, screenX, screenY
     // altkey, ctrlkey, shiftkey, keyCode
 
-    // document.getElementById('images').addEventListener('click', function(e){
+    // document.getElementById('owl').addEventListener('click', function(e){
     //     console.log("clicked inside the ul");
     // }, false)
+    
+    //if in above code I make false into true then you will observe things behave similarly
+    //Event propagation has two context 1)event bubbling 2) event capturing
+    
+    document.getElementById('images').addEventListener('click',function(e){
+        console.log("clicked inside the ul");
+    },false)
+
+    document.getElementById('owl').addEventListener('click',function(e){
+        console.log("owl clicked");
+    },false)
+
+    //when you click on any image other than owl you will get "clicked inside the ul"
+    //since owl image is under li and li is under ul tag if we click the owl then the 
+    //question is which will come first  "clicked inside the ul" or "owl clicked"
+    //ans is owl clicked will come first then after that clicked inside the ul
+    //event propagation is the game of bubbling bubble goes down to top i.e inside to outside
+    
+    // and if you change the false to true then event capturing concept is used 
+    //i.e. on clicking the owl you will get first "clicked inside the ul" and then "owl clicked"
+
+
 
     // document.getElementById('owl').addEventListener('click', function(e){
     //     console.log("owl clicked");
     //     e.stopPropagation()
     // }, false)
+    // if you want to avoid the event bubbling then you can use stopPropagation()
+    //on clicking the owl u will only get "owl clicked" only inner element will work
     
+    //if you want if you clicked the google it shouldnt open the google website then
     // document.getElementById('google').addEventListener('click',function(e){
     //     e.preventDefault();
     //     e.stopPropagation()
     //     console.log("google clicked");
     // }, false)
+    //preventDefault() help to avoid opening of the google website
+    
    
     
     document.querySelector('#images').addEventListener('click', function(e){
@@ -52,12 +100,14 @@
         if (e.target.tagName === 'IMG') {
             console.log(e.target.id);
             let removeIt = e.target.parentNode
-            removeIt.remove()
+            //we dont want remove the image but to remove the parent tag
+            removeIt.remove()//method 1
         }
-    
+    //if we dont use the if condition then on clicking the google which li tag its parentTag ul is deleted 
+    //then whole thing will be remove
         
     })
-    
+    //method 2
     //removeIt.parentNode.removeChild(removeIt)
 </script>
 </html>

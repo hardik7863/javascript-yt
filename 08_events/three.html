@@ -18,5 +18,23 @@
     const intervalId = setInterval(sayDate, 1000, "hi")
 
     clearInterval(intervalId)
+
+    const changeText= function () {
+        document.querySelector('h1').innerHTML = "hardik ji"
+    }
+   
+    document.querySelector('#start').addEventListener('click',function(){
+        
+        setTimeout(changeText, 4000);
+    })
+    //stop button not working need to figure out
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(changeText)
+        console.log("STOPPED")
+    })
+
 </script>
 </html>
+//Asyncronous doesnot mean send request to web Asyncronous is baked in javascript
+javascript is syncronus but it can made asynchronous by using APIs 
+complete javascript run time allows asynchrronous but js engine is synchronous 

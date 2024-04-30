@@ -40,6 +40,11 @@ buttons.forEach(function (button) {
 
 ```javascript
 const form = document.querySelector('form');
+//we need to avoid default  storing of information to the server or backend
+
+// const height=parseInt(document.querySelector('#height').value);
+//if we take height and weight out of the form then it will take empty space instead of values hence need to write inside the form
+
 // this usecase will give you empty
 // const height = parseInt(document.querySelector('#height').value)
 
@@ -50,6 +55,7 @@ form.addEventListener('submit', function (e) {
   const weight = parseInt(document.querySelector('#weight').value);
   const results = document.querySelector('#results');
 
+   //checkers
   if (height === '' || height < 0 || isNaN(height)) {
     results.innerHTML = `Please give a valid height ${height}`;
   } else if (weight === '' || weight < 0 || isNaN(weight)) {
@@ -60,16 +66,20 @@ form.addEventListener('submit', function (e) {
     results.innerHTML = `<span>${bmi}</span>`;
   }
 });
-
+// need to add the wheather the person is underweight or overweight
 
 ```
 
 ## project 3 solution code
 
 ```javascript
+//method 1
 const clock = document.getElementById('clock');
+
+//method 2
 // const clock = document.querySelector('#clock')
 
+//*you can use chromejob you will study in backend but there is not need of that here you can use
 setInterval(function () {
   let date = new Date();
   // console.log(date.toLocaleTimeString());

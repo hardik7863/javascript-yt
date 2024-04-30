@@ -19,7 +19,10 @@
     }
     addLanguage("python")
     addLanguage("typescript")
-
+    //optimization issue incase of 1000 or more than 1000 points 
+    //each time when it addds it will traverse which is not the optimized way
+    
+    //in this case traversal is not issue
     function addOptiLanguage(langName){
         const li = document.createElement('li');
         li.appendChild(document.createTextNode(langName))
@@ -30,15 +33,20 @@
     //Edit
     const secondLang = document.querySelector("li:nth-child(2)")
     console.log(secondLang);
-    //secondLang.innerHTML = "Mojo"
+    //secondLang.innerHTML = "Mojo" //it will work but not the optimized one
     const newli = document.createElement('li')
-    newli.textContent = "Mojo"
+    newli.textContent = "Mojo" 
+    //innerHtml and textContent does not have  to much difference 
+    //you can use append child optional as well
     secondLang.replaceWith(newli)
+    //here we have reference therefore no need of append child 
+    //append child can be use when you have to create it completelt new stuff
 
     //edit
     const firstLang = document.querySelector("li:first-child")
     firstLang.outerHTML = '<li>TypeScript</li>'
-
+    //here we have studied diferent methods of doing some operation
+    
     //remove
     const lastLang = document.querySelector('li:last-child')
     lastLang.remove()

@@ -14,11 +14,12 @@
     console.log(div);
     div.className = "main"
     div.id = Math.round(Math.random() * 10 + 1)
+    //everytime new id will be generate
     div.setAttribute("title", "generated title")
     div.style.backgroundColor = "green"
     div.style.padding = "12px"
     // div.innerText = "Chai aur code"
-    const addText = document.createTextNode("Chai aur code")
+    const addText = document.createTextNode("Chai aur code")//better way as compare to innerText
     div.appendChild(addText)
 
     document.body.appendChild(div)

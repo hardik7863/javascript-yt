@@ -1,16 +1,24 @@
+// A Promise is in one of these states:
+
+// pending: initial state, neither fulfilled nor rejected.
+// fulfilled: meaning that the operation was completed successfully.
+// rejected: meaning that the operation failed.
+
+
 const promiseOne = new Promise(function(resolve, reject){
     //Do an async task
     // DB calls, cryptography, network
     setTimeout(function(){
         console.log('Async task is compelete');
-        resolve()
+        resolve()//if you will avoid writing resolve() then code inside then() will not work
     }, 1000)
 })
-
+//resolve has direct connection with then()
 promiseOne.then(function(){
     console.log("Promise consumed");
 })
 
+//another way of writing 
 new Promise(function(resolve, reject){
     setTimeout(function(){
         console.log("Async task 2");
@@ -23,7 +31,7 @@ new Promise(function(resolve, reject){
 
 const promiseThree = new Promise(function(resolve, reject){
     setTimeout(function(){
-        resolve({username: "Chai", email: "chai@example.com"})
+        resolve({username: "Chai", email: "chai@example.com"})//can pass objects
     }, 1000)
 })
 
@@ -41,6 +49,14 @@ const promiseFour = new Promise(function(resolve, reject){
         }
     }, 1000)
 })
+
+// const username=promiseFour.then((user)=>{
+//     console.log(user);
+//     return user.username
+// })
+// console.log(username);
+// this will give errror we cannot use in this way
+
 
  promiseFour
  .then((user) => {
@@ -65,6 +81,8 @@ const promiseFive = new Promise(function(resolve, reject){
     }, 1000)
 });
 
+//alternative to .then() and .catch() 
+//async await cannot handle errors directly
 async function consumePromiseFive(){
     try {
         const response = await promiseFive
@@ -97,6 +115,21 @@ fetch('https://api.github.com/users/hiteshchoudhary')
     console.log(data);
 })
 .catch((error) => console.log(error))
+//hiteshchoudhary's api come first instead of last and above code come below the github api of hitesh choudhary
 
 // promise.all
 // yes this is also available, kuch reading aap b kro.
+
+
+//fetch API
+//fetch api is the successor of XMLHttpRequest
+
+//read below article https://blog.logrocket.com/fetch-api-node-js/
+
+//*on doing promise() you get error 404 in return then it will be through response or reject 
+//answer response
+
+// A fetch() promise only rejects when the request fails, for example, because of a 
+//badly-formed request URL or a network error. A fetch() promise does not reject 
+//if the server responds with HTTP status codes that indicate errors (404, 504, etc.). 
+//Instead, a then() handler must check the Response.ok and/or Response.status properties.

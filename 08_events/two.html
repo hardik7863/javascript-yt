@@ -9,19 +9,36 @@
     <h1>Chai aur code</h1>
     <button id="stop">Stop</button>
 </body>
+<!-- in js handler means a function without name -->
 <script>
+    
+    
+    // setTimeout(function () {
+    //     console.log("hitesh");
+    // },2000)
+
     const sayHitesh = function(){
         console.log("Hitesh");
     }
+    
+    // setTimeout(sayHitesh, 2000);
+    
+    
     const changeText = function(){
         document.querySelector('h1').innerHTML = "best JS series"
     }
 
-    const changeMe = setTimeout(changeText, 2000)
+    setTimeout(changeText, 2000);//usually used for the popups discount on our course
+    //you need to clear the timeout as well
 
-    document.querySelector('#stop').addEventListener('click', function(){
-        clearTimeout(changeMe)
-        console.log("STOPPED")
-    })
+
+     //if u need to avoid the change text by clicking the stop button    
+    //which seTimeout u need to stop need a reference of that
+    // const changeMe = setTimeout(changeText, 2000)
+
+    // document.querySelector('#stop').addEventListener('click', function(){
+    //     clearTimeout(changeMe)
+    //     console.log("STOPPED")
+    // })
 </script>
 </html>
