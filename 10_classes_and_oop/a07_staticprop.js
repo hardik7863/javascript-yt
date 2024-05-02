@@ -1,3 +1,5 @@
+// property is often called as prop
+
 class User {
     constructor(username){
         this.username = username
@@ -13,7 +15,9 @@ class User {
 }
 
 const hitesh = new User("hitesh")
-// console.log(hitesh.createId())
+// console.log(hitesh.createId()) 
+//if we dont use static key word then we can access createID function 
+//but when use static keyword we cannot access it
 
 class Teacher extends User {
     constructor(username, email){
@@ -23,4 +27,5 @@ class Teacher extends User {
 }
 
 const iphone = new Teacher("iphone", "i@phone.com")
+iphone.logMe();
 console.log(iphone.createId());

@@ -10,7 +10,8 @@ class User {
 
 class Teacher extends User{
     constructor(username, email, password){
-        super(username)
+        super(username) 
+        //we have learned call and this recently .call (this,) is replaced by super()
         this.email = email
         this.password = password
     }
@@ -26,5 +27,11 @@ chai.logMe()
 const masalaChai = new User("masalaChai")
 
 masalaChai.logMe()
-
+console.log(chai instanceof Teacher);
 console.log(chai instanceof User);
+
+//OP:-
+// USERNAME is chai
+// USERNAME is masalaChai
+// true
+// true

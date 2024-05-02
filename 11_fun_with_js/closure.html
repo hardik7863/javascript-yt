@@ -1,3 +1,11 @@
+<!-- lexical scope and closure -->
+<!-- a closure gives you access to an outer function's scope from an 
+inner function. In JavaScript, closures are created every time a function 
+is created, at function creation time. -->
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,9 +31,10 @@
     // function outer(){
     //     let username = "hitesh"
     //     console.log("OUTER", secret);
+    //we cannot access secret //bigger brother cannot steal smaller one's toys
     //     function inner(){
     //         let secret = "my123"
-    //         console.log("inner", username);
+    //         console.log("inner", username);//lexical scope inner one can access outer ones variable
     //     }
     //     function innerTwo(){
     //         console.log("innerTwo", username);

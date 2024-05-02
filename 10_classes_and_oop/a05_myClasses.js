@@ -2,6 +2,7 @@
 
 class User {
     constructor(username, email, password){
+        //after writing new keyword the constructor is called
         this.username = username;
         this.email = email;
         this.password = password
@@ -21,7 +22,7 @@ const chai = new User("chai", "chai@gmail.com", "123")
 console.log(chai.encryptPassword());
 console.log(chai.changeUsername());
 
-// behind the scene
+// behind the scene how class works
 
 function User(username, email, password){
     this.username = username;

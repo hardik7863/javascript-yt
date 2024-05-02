@@ -1,7 +1,8 @@
+//older way of getter and setter function based
 function User(email, password){
     this._email = email;
     this._password = password
-
+    //defineProperty is the property of getter and setter
     Object.defineProperty(this, 'email', {
         get: function(){
             return this._email.toUpperCase()
