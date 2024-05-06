@@ -1,17 +1,17 @@
 let score = "hitesh"
 
-//console.log(typeof score); //number
-//console.log(typeof(score)); //number
+// console.log(typeof score); //string
+// console.log(typeof(score)); //string
 
 let valueInNumber = Number(score)
 //console.log(typeof valueInNumber); //number
 //console.log(valueInNumber); //NaN
 
 let xyz=null;
-// console.log(typeof xyz); //0
+// console.log(typeof xyz); //object
 
 let abc=undefined;
-// console.log(typeof abc); //NaN
+// console.log(typeof abc); //undefined
 
 // "33" => 33
 // "33abc" => NaN
